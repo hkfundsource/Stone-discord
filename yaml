@@ -1,0 +1,17 @@
+name: Discord Notification
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord message
+        run: |
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d '{"content": "New push to main branch!"}' \
+          https://discord.com/api/webhooks/1405477454491025460/NY6Kc5wfpn4GS1rAOgJileyseVlk3yZ9Q0Ez0hTH1tJlmd0ejFZ6tcUugNkfo7oQ_BCC
